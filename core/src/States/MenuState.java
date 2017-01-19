@@ -4,10 +4,41 @@
  */
 package States;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
 /**
  *
  * @author kulla6503
  */
-public class MenuState {
+public class MenuState extends State{
+
+    
+    public MenuState(Statemanager gsm){
+        super(gsm);
+    }  
+    
+    
+    @Override
+    public void render(SpriteBatch batch) {
+        batch.begin();
+        
+        batch.end();
+    }
+
+    @Override
+    public void update(float deltaTime) {
+        
+    }
+
+    @Override
+    public void handleInput() {
+        
+    }
+
+    @Override
+    public void dispose() {
+        
+    }
+    
     
 }
