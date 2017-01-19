@@ -6,7 +6,7 @@ package com.mygdx.game;
 
 /**
  *
- * @author kulla6503
+ * @author pawar5658
  */
 public class Bullet {
     
