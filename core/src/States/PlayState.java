@@ -23,24 +23,16 @@ public class PlayState extends State{
     private Texture bg;
     
     
-    public PlayState(Statemanager sm){
-        
+    public PlayState(Statemanager sm){ 
         super(sm);
-        
         bg = new Texture("Background.png");
         
     }
     
     @Override
-    public void render(SpriteBatch batch){
-      
-        
+    public void render(SpriteBatch batch){    
        batch.begin();
-        
-        batch.draw(bg, getViewWidth(), getViewHeight());
-        
-        
-                
+        batch.draw(bg, getViewWidth(), getViewHeight()); 
         batch.end();
     }
     
