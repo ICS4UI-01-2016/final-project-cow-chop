@@ -45,23 +45,6 @@ public abstract class State {
         cam.update();
     }
     
-    public Matrix4 getCombinedCamera(){
-        return cam.combined;
-    }
-    
-    public void moveCameraX(float x){
-        cam.position.x = x;
-        cam.update();
-    }
-    
-    public float getCameraX(){
-        return cam.position.x;
-    }
-    
-    public float getCameraY(){
-        return cam.position.y;
-    }
-    
     public float getViewWidth(){
         return cam.viewportWidth;
     }
