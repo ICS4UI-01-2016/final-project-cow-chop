@@ -4,6 +4,7 @@
  */
 package States;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 /**
@@ -12,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
  */
 public class MenuState extends State{
 
+  
     
     public MenuState(Statemanager gsm){
         super(gsm);

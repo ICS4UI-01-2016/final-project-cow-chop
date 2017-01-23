@@ -30,7 +30,7 @@ public class PlayState extends State{
         super(sm);
         bg = new Texture("Background.png");
         
-        tankr = new Tanks(35, 50);
+        tankr = new Tanks(35, 50, 0);
        
     }
     
@@ -67,6 +67,14 @@ public class PlayState extends State{
         if(Gdx.input.isKeyPressed(Input.Keys.S)){
             tankr.Deccelerate();
         }
+        
+        if(Gdx.input.isKeyPressed(Input.Keys.D)){
+            tankr.turnright();
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.A)){
+            
+        }
+        
     }
             
 }
