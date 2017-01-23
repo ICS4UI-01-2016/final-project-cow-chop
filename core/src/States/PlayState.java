@@ -4,6 +4,8 @@
  */
 package States;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Matrix4;
@@ -59,7 +61,12 @@ public class PlayState extends State{
 
     @Override
     public void handleInput() {
-        
+        if(Gdx.input.isKeyPressed(Input.Keys.W)){
+            tankr.Accelerate();
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.S)){
+            tankr.Deccelerate();
+        }
     }
             
 }
