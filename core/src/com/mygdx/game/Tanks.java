@@ -45,11 +45,11 @@ public class Tanks {
    public void update(float deltaTime){
        
        bounds.setPosition(position.x, position.y);
-       if((velocity>0)|| velocity<0){
+      
        if(turnleft){
        rotation += 4f * (Math.abs(velocity) / 1.2) ;
       
-       }
+      
        
        if(turnright){
        rotation -= 4f * (Math.abs(velocity) / 1.2) ;
@@ -62,28 +62,7 @@ public class Tanks {
         while (rotation < 0) {
             rotation = rotation + 360;
         }  
-            
-        if (rotation >= 0 && rotation <= 90) {
-            float Spin = rotation;
-            spX = (0.0f - (Spin / 18.0f)) * velocity;
-            spY = (5.0f - (Spin / 18.0f)) * velocity;
-        } else if (rotation >= 90 && rotation <= 180) {
-            float Spin = rotation - 90;
-            spX = (-5.0f + (Spin / 18.0f)) * velocity;
-            spY = (0.0f - (Spin / 18.0f)) * velocity;
-        } else if (rotation >= 180 && rotation <= 270) {
-            float Spin = rotation - 180;
-            spX = (0.0f + (Spin/ 18.0f)) * velocity;
-            spY = (-5.0f + (Spin / 18.0f)) * velocity;
-        } else if (rotation >= 270 && rotation <= 360) {
-            float Spin = rotation - 270;
-            spX = (5.0f - (Spin / 18.0f)) * velocity;
-            spY = (0.0f + (Spin / 18.0f)) * velocity;
-        }
-       
-        position.x += spX;
-        position.y += spY;
-                
+               
         
    }
    
