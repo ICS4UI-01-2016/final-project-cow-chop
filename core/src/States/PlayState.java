@@ -23,6 +23,11 @@ public class PlayState extends State{
   
     private int WIDTH = MyGdxGame.WIDTH;
     private int HEIGHT = MyGdxGame.HEIGHT;
+    private boolean turnleft;
+    private boolean turnright;
+    private float velocity;
+    private float spX;
+    private float spY;
     private Texture bg;
     
     
@@ -30,7 +35,7 @@ public class PlayState extends State{
         super(sm);
         bg = new Texture("Background.png");
         
-        tankr = new Tanks(35, 50, 0);
+        tankr = new Tanks(35, 50, 0, 35, 50);
        
     }
     
@@ -47,6 +52,7 @@ public class PlayState extends State{
     public void update(float deltaTime){
         tankr.update(deltaTime);
         
+      
         
     }
     
@@ -69,10 +75,10 @@ public class PlayState extends State{
         }
         
         if(Gdx.input.isKeyPressed(Input.Keys.D)){
-            tankr.turnright();
+            tankr.turnRight(turnright);
         }
         if(Gdx.input.isKeyPressed(Input.Keys.A)){
-            
+            tankr.turnLeft(turnleft);
         }
         
     }
