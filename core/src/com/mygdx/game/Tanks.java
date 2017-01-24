@@ -29,6 +29,8 @@ public class Tanks {
         tankr = new Texture ("Tank6.png"); 
         // 
        bounds = new Rectangle(position.x,position.y,tankr.getWidth(),tankr.getHeight());
+       position.x = x;
+       position.y = y;
     }
    //
     public void render(SpriteBatch batch) {
