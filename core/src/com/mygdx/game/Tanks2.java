@@ -14,44 +14,56 @@ import com.badlogic.gdx.math.Vector3;
  * @author pawar5658
  */
 public class Tanks2 {
-    private Texture tankg;
-    private final float Accelerate = 25;
-    private Vector3 position;
+   private Texture tankg;
+    private float Accelerate = 2;
+    private float deccelerate = 2; 
     private Rectangle bounds;
-    
-    public Tanks2 (int x, int y){
-        position = new Vector3(x,y,0);
-        tankg = new Texture("tank5.png");
-        bounds = new Rectangle(position.x, position.y, tankg.getWidth(), tankg.getHeight());
-    } 
-    
-    public void render(SpriteBatch batch){
+    private Vector3 position;
+
+    public Tanks2(int x, int y) {
+        position = new Vector3(x,y,0); 
+        // 
+        tankg = new Texture ("Tank5.png"); 
+        // 
+       bounds = new Rectangle(position.x,position.y,tankg.getWidth(),tankg.getHeight());
+    }
+   //
+    public void render(SpriteBatch batch) {
         batch.draw(tankg, position.x, position.y);
     }
     
-    public void update(float deltaTime){
-       bounds.setPosition(position.x, position.y);
-   }
-    
-    public float getX(){
-        return position.x;
+     public void update(float deltaTime) {
+
+        // Updating the certain bounds of tankX
+        bounds.setPosition(position.x, position.y);
         
     } 
     
-    public float getY(){
-        return position.y;
+
+    public float getX() {
+        return position.x;
     }
     
-    public Rectangle getBounds(){
+    public float getY() {
+        return position.y;
+    }
+
+    public Rectangle getBounds() {
         return bounds;
     }
     
-    public void dispose(){
-        tankg.dispose();
+     public float Accelerate(){
+        return position.x = position.x + Accelerate;
     }
-    
-    public float Accelerate(){
-        return Accelerate;
+     
+    public float Deccelerate(){
+        return position.x = position.x - deccelerate;
+    } 
+
+   
+    //
+    public void dispose() {
+        tankg.dispose();
     }
     
 }
