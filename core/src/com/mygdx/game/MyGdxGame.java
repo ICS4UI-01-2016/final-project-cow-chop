@@ -24,7 +24,7 @@ public class MyGdxGame extends ApplicationAdapter {
         // 
         Statemanager = new Statemanager();
         // 
-        State firstScreen = new PlayState(Statemanager);
+        State firstScreen = new MenuState(Statemanager);
         // Loading the First Screen 
         Statemanager.push(firstScreen);
     }
