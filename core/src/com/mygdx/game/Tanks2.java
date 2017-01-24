@@ -56,6 +56,7 @@ public class Tanks2 {
         return position.x = position.x + Accelerate;
     }
      
+    // 
     public float Deccelerate(){
         return position.x = position.x - deccelerate;
     } 
