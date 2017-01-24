@@ -19,16 +19,18 @@ public class Bullet {
     private float bulletY;
     private Texture bulletTexture;
     private Rectangle bounds;
-    private final float BULLET_VELOCITY_UP = 150;
+    private float BULLET_VELOCITY_UP;
+    private double bulletvelocity;
 
     // 
     public Bullet(float x, float y) {
         // 
         bulletX = x;
         bulletY = y;
-        bulletTexture = new Texture("");
+        bulletTexture = new Texture("bullet3.png");
         bounds = new Rectangle(bulletX, bulletY, bulletTexture.getWidth(), bulletTexture.getHeight());
-
+        bulletvelocity = 50 + Math.random()* 150;
+        BULLET_VELOCITY_UP = (float) bulletvelocity;
     }
 
     // 
