@@ -81,11 +81,11 @@ public class PlayState extends State {
                 gsm.pop();
                 System.out.println("RED WINS");
             }
-
+        }
             Iterator<Bullet2> gs = bullet2.iterator();
             while (gs.hasNext()) {
                 Bullet2 down = gs.next();
-                if (up.getY() > 600) {
+                if (down.getY() > 600) {
                     gs.remove();
                 } else if (down.collides(tankr)) {
                     Statemanager gsm = getStateManager();
@@ -93,7 +93,7 @@ public class PlayState extends State {
                     System.out.println("GREEN WINS");
                 }
             }
-        }
+        
     }
 
         @Override
