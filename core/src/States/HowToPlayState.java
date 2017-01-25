@@ -25,17 +25,16 @@ class HowToPlayState extends State {
         setCameraView(MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
         setCameraPosition(getViewWidth() / 2, getViewHeight() / 2);
 
-        bg = new Texture("tankBackground");
-        ImageOfHowToPlayMenu = new Texture("ImageOfHowToPlayMenu.png");
+        bg = new Texture("tankBackground.png");
+        ImageOfHowToPlayMenu = new Texture("HowToPlayMenu.png");
     }
 
     @Override
     public void render(SpriteBatch batch) {
         batch.setProjectionMatrix(getCombinedCamera());
         batch.begin();
-
         batch.draw(bg, 0, 0, getViewWidth(), getViewHeight());
-
+        batch.draw(ImageOfHowToPlayMenu, 0, 0, getViewWidth(), getViewHeight());
         batch.end();
     }
 
@@ -50,7 +49,7 @@ class HowToPlayState extends State {
 
             if (touch.x > 0 && touch.x < getViewWidth() && touch.y > 0 && touch.y < getViewHeight()) {
                 Statemanager gsm = getStateManager();
-                gsm.push(new HowToPlayState(gsm));
+                gsm.push(new MenuState(gsm));
             }
         }
     }
@@ -58,5 +57,7 @@ class HowToPlayState extends State {
     @Override
     public void dispose() {
         bg.dispose();
+        ImageOfHowToPlayMenu.dispose();
+        
     }
 }
