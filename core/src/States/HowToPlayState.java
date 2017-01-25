@@ -17,6 +17,7 @@ import com.mygdx.game.MyGdxGame;
 class HowToPlayState extends State {
 
     private Texture bg;
+    private Texture ImageOfHowToPlayMenu; 
 
     public HowToPlayState(Statemanager gsm) {
 
@@ -24,8 +25,8 @@ class HowToPlayState extends State {
         setCameraView(MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
         setCameraPosition(getViewWidth() / 2, getViewHeight() / 2);
 
-        bg = new Texture("howto.jpg");
-
+        bg = new Texture("tankBackground");
+        ImageOfHowToPlayMenu = new Texture("ImageOfHowToPlayMenu.png");
     }
 
     @Override
@@ -49,7 +50,7 @@ class HowToPlayState extends State {
 
             if (touch.x > 0 && touch.x < getViewWidth() && touch.y > 0 && touch.y < getViewHeight()) {
                 Statemanager gsm = getStateManager();
-                gsm.push(new PlayState(gsm));
+                gsm.push(new HowToPlayState(gsm));
             }
         }
     }

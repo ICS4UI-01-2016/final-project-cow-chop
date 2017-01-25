@@ -12,17 +12,7 @@ import java.awt.Rectangle;
  *
  * @author kulla6503
  */
-public class Maze {
+public class Map {
     Rectangle walls[] = new Rectangle[10];
-    
-    
-   public void Maze(){
-     
-       
-   }
-    
-    public void dispose(){
-        
-    }
                         
 }

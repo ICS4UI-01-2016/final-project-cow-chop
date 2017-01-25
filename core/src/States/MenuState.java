@@ -35,7 +35,7 @@ public class MenuState extends State {
 
         bg = new Texture("tankBackground.png");
         playButton = new Texture("playButton.png");
-        HowToPlayButton = new Texture("playButton.png");
+        HowToPlayButton = new Texture("HowToPlayButton.png");
 
     }
 
@@ -48,8 +48,8 @@ public class MenuState extends State {
         batch.begin();
         // the getviewwidth and height commands are used to stretch the screen according to your screen (phone or pc)
         batch.draw(bg, 0, 0, getViewWidth(), getViewHeight());
-        batch.draw(playButton, getViewWidth() / 2 - playButton.getWidth() / 2, getViewHeight() / 2);
-        batch.draw(HowToPlayButton, getViewWidth() / 2 - 50, getViewHeight() / 2 - 100, 100, 50);
+        batch.draw(HowToPlayButton, getViewWidth() / 2 - HowToPlayButton.getWidth() / 2, getViewHeight() / 2);
+        batch.draw(playButton, getViewWidth() / 2 - 50, getViewHeight() / 2 - 100, 100, 50);
         batch.end();
 
     }
@@ -66,17 +66,20 @@ public class MenuState extends State {
             // Get the mouse click/touch position
             Vector3 touch = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
             
-            // Check if the button is pressed
+            // Checks if the button is pressed, gets the width and height of each button 
             float playButtonX = getViewWidth() / 2 - playButton.getWidth() / 2;
+            // Checks if the button is pressed, gets height of the play button
             float playButtonY = getViewHeight() / 2;
+            // Checks if the button is pressed, gets width of the play button
             float HowToPlayButtonX = getViewWidth() / 2 - 100;
+            // Checks if the button is pressed, gets height of the play button
             float HowToPlayButtonY = getViewHeight() / 2 - 130;
 
 
-            //
+            // When the play button is clicked on, the screen is changed to the the actual game(playstate)
             if (touch.x > playButtonX && touch.x < playButtonX + playButton.getWidth()
                     && touch.y > playButtonY && touch.y < playButtonY + playButton.getHeight()) {
-                // 
+                // The state manager is called inorder to change the states 
                 Statemanager gsm = getStateManager();
 
                 // Created a new game state on top of the game state
@@ -84,7 +87,7 @@ public class MenuState extends State {
 
             }
 
-            //button #2 
+            // 
             if (touch.x > HowToPlayButtonX && touch.x < HowToPlayButtonX + 200
                     && touch.y > HowToPlayButtonY && touch.y < HowToPlayButtonY + 100) {
                 //
