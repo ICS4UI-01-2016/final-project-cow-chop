@@ -12,19 +12,18 @@ import com.badlogic.gdx.math.Rectangle;
  *
  * @author pawar5658
  */
-public class Bullet {
+public class Bullet2 {
 
     // Private variables 
     private float bulletX;
     private float bulletY;
     private Texture bulletTexture;
     private Rectangle bounds;
-    private float BULLET_VELOCITY_UP;
+    private float BULLET_VELOCITY_UP = 150;
     private double bulletvelocity;
-    private boolean collides;
 
     // 
-    public Bullet(float x, float y) {
+    public Bullet2(float x, float y) {
         // 
         bulletX = x;
         bulletY = y;
@@ -38,7 +37,7 @@ public class Bullet {
     public void update(float deltaTime) {
 
         // Add the velocity to the bullet 
-        bulletY += BULLET_VELOCITY_UP * deltaTime;
+        bulletY -= BULLET_VELOCITY_UP * deltaTime;
 
         // Update the bullet x and bullet y positions 
         bounds.setPosition(bulletX, bulletY);
@@ -48,11 +47,6 @@ public class Bullet {
     public float getY() {
         // 
         return bulletY;
-    }
-    
-    public Rectangle Bounds(){
-        return bounds;
-        
     }
 
     // 
@@ -65,18 +59,15 @@ public class Bullet {
     public void dispose() {
         // 
         bulletTexture.dispose();
-        
     }
 
     // 
-    public boolean collides(Bullet Bounds) {
+    public boolean collides(Tanks2 surround) {
         // 
-         if(collides == true){
-             Bounds.dispose();
+        if (bounds.overlaps(surround.getBounds())) {
             return true;
-        }else{
-        
+        }
+
         return false;
-    }
     }
 }
