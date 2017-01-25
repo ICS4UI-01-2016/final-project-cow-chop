@@ -39,7 +39,7 @@ public class PlayState extends State {
 
     @Override
     public void render(SpriteBatch batch) {
-        // Getting the camera 
+        
         
         batch.begin();
 
@@ -63,6 +63,7 @@ public class PlayState extends State {
     @Override
     public void update(float deltaTime) {
         tankr.update(deltaTime);
+        tankg.update(deltaTime);
         // Updating the bullets 
         for (int i = 0; i < bullet.size; i++) {
             bullet.get(i).update(deltaTime);
@@ -70,12 +71,16 @@ public class PlayState extends State {
         for (int i = 0; i < bullet2.size; i++) {
             bullet2.get(i).update(deltaTime);
         }
+        
+        
     }
 
     @Override
     public void dispose() {
         bg.dispose();
         tankr.dispose();
+        tankg.dispose();
+       
     }
 
     @Override
@@ -91,7 +96,7 @@ public class PlayState extends State {
             tankr.Deccelerate();
         }
 
-//
+        //
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             //
             tankg.Accelerate();

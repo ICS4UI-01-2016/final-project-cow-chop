@@ -21,6 +21,7 @@ public class Bullet {
     private Rectangle bounds;
     private float BULLET_VELOCITY_UP;
     private double bulletvelocity;
+    private boolean collides;
 
     // 
     public Bullet(float x, float y) {
@@ -48,6 +49,11 @@ public class Bullet {
         // 
         return bulletY;
     }
+    
+    public Rectangle Bounds(){
+        return bounds;
+        
+    }
 
     // 
     public void render(SpriteBatch batch) {
@@ -59,15 +65,18 @@ public class Bullet {
     public void dispose() {
         // 
         bulletTexture.dispose();
+        
     }
 
     // 
-    public boolean collides(Tanks2 surround) {
+    public boolean collides(Bullet Bounds) {
         // 
-        if (bounds.overlaps(surround.getBounds())) {
+         if(collides == true){
+             Bounds.dispose();
             return true;
-        }
-
+        }else{
+        
         return false;
+    }
     }
 }
