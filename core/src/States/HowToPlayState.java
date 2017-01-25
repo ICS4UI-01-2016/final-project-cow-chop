@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * This class explains how to play as tank 1 and tank 2
  */
 package States;
 
@@ -12,7 +11,7 @@ import com.mygdx.game.MyGdxGame;
 
 /**
  *
- * @author kulla6503
+ * @author kulla6503, pawar5658, dhila4674
  */
 class HowToPlayState extends State {
     // Create instance variables
