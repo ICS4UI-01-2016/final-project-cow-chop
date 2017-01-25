@@ -78,7 +78,8 @@ public class PlayState extends State {
                 rs.remove();
             } else if (up.collides(tankg)) {
                 Statemanager gsm = getStateManager();
-                gsm.pop();;
+                gsm.pop();
+                System.out.println("RED WINS");
             }
 
             Iterator<Bullet2> gs = bullet2.iterator();
@@ -88,7 +89,8 @@ public class PlayState extends State {
                     gs.remove();
                 } else if (down.collides(tankr)) {
                     Statemanager gsm = getStateManager();
-                    gsm.pop();;
+                    gsm.pop();
+                    System.out.println("GREEN WINS");
                 }
             }
         }
