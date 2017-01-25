@@ -12,6 +12,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MyGdxGame extends ApplicationAdapter {
 
+    // Final width and height of the game 
     public static final int WIDTH = 450;
     public static final int HEIGHT = 600;
     // To draw different pictures 
@@ -40,15 +41,16 @@ public class MyGdxGame extends ApplicationAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         // Handle the input 
         Statemanager.handleInput();
-        // update the game states
+        // Updating the game states 
         Statemanager.update(Gdx.graphics.getDeltaTime());
-        // draw the screen
+        // Drawing the Screen 
         Statemanager.render(batch);
     }
 
-   
+    // Section of the end game 
     @Override
     public void dispose() {
+        // Dispose Batch 
         batch.dispose();
 
     }

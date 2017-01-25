@@ -11,7 +11,7 @@ import com.badlogic.gdx.math.Vector3;
 
 /**
  *
- * @author kulla6503
+ * @author pawar5658, kulla6503, dhila4674
  */
 public class Tanks {
 
