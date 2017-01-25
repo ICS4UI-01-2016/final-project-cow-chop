@@ -14,16 +14,20 @@ public class MyGdxGame extends ApplicationAdapter {
 
     public static final int WIDTH = 450;
     public static final int HEIGHT = 600;
+    // To draw different pictures 
     private SpriteBatch batch;
+    // Manages the states 
     private Statemanager Statemanager;
 
+    // Intitial Setup 
     @Override
     public void create() {
         batch = new SpriteBatch();
+        // This colour clears the screen 
         Gdx.gl.glClearColor(2, 1, 1, 2);
-        // 
+        // Creating the State Manager 
         Statemanager = new Statemanager();
-        // 
+        // Creating the first Screen 
         State firstScreen = new MenuState(Statemanager);
         // Loading the First Screen 
         Statemanager.push(firstScreen);
