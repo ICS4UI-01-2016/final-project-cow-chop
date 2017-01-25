@@ -33,7 +33,7 @@ public class Bullet {
         BULLET_VELOCITY_UP = (float) bulletvelocity;
     }
 
-    // 
+    
     public void update(float deltaTime) {
 
         // Add the velocity to the bullet 
@@ -42,10 +42,10 @@ public class Bullet {
         // Update the bullet x and bullet y positions 
         bounds.setPosition(bulletX, bulletY);
     }
-    //
+    
 
     public float getY() {
-        // 
+        // // returns the Y bounds while it moves
         return bulletY;
     }
     
@@ -54,26 +54,27 @@ public class Bullet {
         
     }
 
-    // 
+    
     public void render(SpriteBatch batch) {
-        // 
+        // Draws the bullet 
         batch.draw(bulletTexture, bulletX, bulletY);
     }
 
-    // 
+     
     public void dispose() {
-        // 
+        // gets rid of the bullets off screen and when the game ends
         bulletTexture.dispose();
         
     }
 
-    // 
+    
     public boolean collides(Tanks2 tankg) {
-        // 
+        // This sets the collisions with the bullet that shoot from the red tank 
+        // When it hits the green tank
          if (bounds.overlaps(tankg.getBounds())) {
             return true;
         }
-
+        // if it doesn't hit the tank
         return false;
     }
     }

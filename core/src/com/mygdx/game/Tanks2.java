@@ -22,16 +22,15 @@ public class Tanks2 {
     private Vector3 position;
 
     public Tanks2(int x, int y) {
+        // sets the tank into the game
         position = new Vector3(x,y,0); 
-        // 
         tankg = new Texture ("Tank5.png"); 
-        // 
         bounds = new Rectangle(position.x,position.y,tankg.getWidth(),tankg.getHeight());
         position.x = x;
         position.y = y;
     }
     
-   //
+   // Draws the green tank
     public void render(SpriteBatch batch) {
         batch.draw(tankg, position.x, position.y);
     }
@@ -50,21 +49,22 @@ public class Tanks2 {
         return position.y;
     }
 
+    //This return the hit boxes
     public Rectangle getBounds() {
         return bounds;
     }
-    
+    //this runs the speed of the tank with the x position to move right 
      public float Accelerate(){
         return position.x = position.x + Accelerate;
     }
      
-    // 
+    // this runs the speed of the tank with the x position to move left
     public float Deccelerate(){
         return position.x = position.x - deccelerate;
     } 
 
    
-    //
+    //this gets rid of tank when the game ends
     public void dispose() {
         tankg.dispose();
     }
