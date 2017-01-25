@@ -30,7 +30,7 @@ public class MenuState extends State {
 
         super(gsm);
         //
-        bg = new Texture("");
+        bg = new Texture("tankBackground");
         //
         ImageOfplayButton = new Texture("playButton.png");
         // 
@@ -40,12 +40,12 @@ public class MenuState extends State {
         //
         HowToPlayButton = new Rectangle(110, 409, 175, 50);
         // 
-
         setCameraView(MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
     }
 
     @Override
     public void render(SpriteBatch batch) {
+        
         // Sets camera properly
         batch.setProjectionMatrix(getCombinedCamera());
         // Beginning the drawings
@@ -62,37 +62,42 @@ public class MenuState extends State {
 
     @Override
     public void update(float deltaTime) {
+        
     }
 
     @Override
     public void handleInput() {
-        // Get the mouse click/touch position of the user
-        Vector3 touch = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
+        
+        //Check if parameter is clicked on, to screen menu screens
+        if (Gdx.input.justTouched()) {
 
-        // 
-        if (touch.x >= HowToPlayButton.x && touch.x <= HowToPlayButton.x + HowToPlayButton.width
-                && touch.y >= HowToPlayButton.y && touch.y <= HowToPlayButton.y + HowToPlayButton.height) {
-            // 
-            Statemanager gsm = getStateManager();
+            //get the mouse click/touch position
+            Vector3 touch = new Vector3(Gdx.input.getX(), Gdx.input.getY(),0);
+      
+        
+            
+            // Check if button is pressed
+            if(playbutton.contains(touch.x, touch.y)){
+               
+                Statemanager gsm = getStateManager();
+                gsm.push(new PlayState(gsm));
+
+            } else if (HowToPlayButton.contains(touch.x, touch.y)) {
+              
+                Statemanager gsm = getStateManager();
+                gsm.push(new HowToPlayState(gsm));
 
 
-
+            }
         }
-
-        // If the "Play" button is clicked on, change the screen to Choose Player Amount screen
-        if (touch.x >= playbutton.x && touch.x <= playbutton.x + playbutton.width
-                && touch.y >= playbutton.y && touch.y <= playbutton.y + playbutton.height) {
-            // Call the state manager in order to change states!
-            Statemanager gsm = getStateManager();
-
-        }
+       
     }
 
     @Override
     public void dispose() {
         // Dispose all the images used within this state
         bg.dispose();
-
+        // Dispose of the buttons on menu 
         ImageOfHowToPlayButton.dispose();
         ImageOfplayButton.dispose();
     }
