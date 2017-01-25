@@ -17,80 +17,86 @@ import com.mygdx.game.MyGdxGame;
  */
 public class MenuState extends State {
 
+    //
     private Texture bg;
     //
-    private Texture ImageOfplayButton;
-    private Rectangle playbutton;
+    private Texture playButton;
     // How To Play option instance variables
-    private Texture ImageOfHowToPlayButton;
-    private Rectangle HowToPlayButton;
+    private Texture HowToPlayButton;
 
     public MenuState(Statemanager gsm) {
 
 
+
         super(gsm);
-        //
-        bg = new Texture("tankBackground");
-        //
-        ImageOfplayButton = new Texture("playButton.png");
-        // 
-        playbutton = new Rectangle(419, 409, 176, 50);
-        //
-        ImageOfHowToPlayButton = new Texture("playButton.png");
-        //
-        HowToPlayButton = new Rectangle(110, 409, 175, 50);
-        // 
         setCameraView(MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
+        setCameraPosition(getViewWidth() / 2, getViewHeight() / 2);
+
+
+        bg = new Texture("tankBackground.png");
+        playButton = new Texture("playButton.png");
+        HowToPlayButton = new Texture("playButton.png");
+
     }
 
     @Override
     public void render(SpriteBatch batch) {
-        
-        // Sets camera properly
+
+        // 
         batch.setProjectionMatrix(getCombinedCamera());
-        // Beginning the drawings
+        // start drawing stuff 
         batch.begin();
-        // Drawing the rectangle behind the Play option
-        batch.draw(ImageOfplayButton, playbutton.x, playbutton.y, playbutton.width, playbutton.height);
-        // Drawing the rectangle behind the How To Play option
-        batch.draw(ImageOfHowToPlayButton, HowToPlayButton.x, HowToPlayButton.y, HowToPlayButton.width, HowToPlayButton.height);
-        // Drawing the background image
+        // the getviewwidth and height commands are used to stretch the screen according to your screen (phone or pc)
         batch.draw(bg, 0, 0, getViewWidth(), getViewHeight());
+        batch.draw(playButton, getViewWidth() / 2 - playButton.getWidth() / 2, getViewHeight() / 2);
+        batch.draw(HowToPlayButton, getViewWidth() / 2 - 50, getViewHeight() / 2 - 100, 100, 50);
         batch.end();
 
     }
 
     @Override
     public void update(float deltaTime) {
-        
     }
 
     @Override
     public void handleInput() {
-        
-        //Check if parameter is clicked on, to screen menu screens
-        if (Gdx.input.justTouched()) {
 
-            //get the mouse click/touch position
-            Vector3 touch = new Vector3(Gdx.input.getX(), Gdx.input.getY(),0);
-      
-        
+
+        if (Gdx.input.justTouched()) {
+            // Get the mouse click/touch position
+            Vector3 touch = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
             
-            // Check if button is pressed
-            if(playbutton.contains(touch.x, touch.y)){
-               
+            // Check if the button is pressed
+            float playButtonX = getViewWidth() / 2 - playButton.getWidth() / 2;
+            float playButtonY = getViewHeight() / 2;
+            float HowToPlayButtonX = getViewWidth() / 2 - 100;
+            float HowToPlayButtonY = getViewHeight() / 2 - 130;
+
+
+            //
+            if (touch.x > playButtonX && touch.x < playButtonX + playButton.getWidth()
+                    && touch.y > playButtonY && touch.y < playButtonY + playButton.getHeight()) {
+                // 
                 Statemanager gsm = getStateManager();
+
+                // Created a new game state on top of the game state
                 gsm.push(new PlayState(gsm));
 
-            } else if (HowToPlayButton.contains(touch.x, touch.y)) {
-              
-                Statemanager gsm = getStateManager();
-                gsm.push(new HowToPlayState(gsm));
-
-
             }
+
+            //button #2 
+            if (touch.x > HowToPlayButtonX && touch.x < HowToPlayButtonX + 200
+                    && touch.y > HowToPlayButtonY && touch.y < HowToPlayButtonY + 100) {
+                //
+                Statemanager gsm = getStateManager();
+                //
+                gsm.push(new HowToPlayState(gsm));
+            }
+
+
+
         }
-       
+
     }
 
     @Override
@@ -98,7 +104,8 @@ public class MenuState extends State {
         // Dispose all the images used within this state
         bg.dispose();
         // Dispose of the buttons on menu 
-        ImageOfHowToPlayButton.dispose();
-        ImageOfplayButton.dispose();
+        HowToPlayButton.dispose();
+        // 
+        playButton.dispose();
     }
 }

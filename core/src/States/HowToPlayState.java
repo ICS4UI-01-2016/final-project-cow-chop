@@ -4,36 +4,58 @@
  */
 package States;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector3;
+import com.mygdx.game.MyGdxGame;
 
 /**
  *
  * @author kulla6503
  */
 class HowToPlayState extends State {
-    
+
+    private Texture bg;
+
     public HowToPlayState(Statemanager gsm) {
-        super(gsm); 
+
+        super(gsm);
+        setCameraView(MyGdxGame.WIDTH, MyGdxGame.HEIGHT);
+        setCameraPosition(getViewWidth() / 2, getViewHeight() / 2);
+
+        bg = new Texture("howto.jpg");
+
     }
 
     @Override
     public void render(SpriteBatch batch) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        batch.setProjectionMatrix(getCombinedCamera());
+        batch.begin();
+
+        batch.draw(bg, 0, 0, getViewWidth(), getViewHeight());
+
+        batch.end();
     }
 
     @Override
     public void update(float deltaTime) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void handleInput() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (Gdx.input.justTouched()) {
+            Vector3 touch = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
+
+            if (touch.x > 0 && touch.x < getViewWidth() && touch.y > 0 && touch.y < getViewHeight()) {
+                Statemanager gsm = getStateManager();
+                gsm.push(new PlayState(gsm));
+            }
+        }
     }
 
     @Override
     public void dispose() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        bg.dispose();
     }
-    
 }
