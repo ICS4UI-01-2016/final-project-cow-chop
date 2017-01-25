@@ -27,19 +27,18 @@ public class MyGdxGame extends ApplicationAdapter {
         Gdx.gl.glClearColor(2, 1, 1, 2);
         // Creating the State Manager 
         Statemanager = new Statemanager();
-        // Creating the first Screen 
+        // Creating the first Screen(MenuState) 
         State firstScreen = new MenuState(Statemanager);
         // Loading the First Screen 
         Statemanager.push(firstScreen);
     }
 
+    // Loops the game 
     @Override
     public void render() {
-
-        
-        // 
+        // This colour clears the scree
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        // handle input
+        // Handle the input 
         Statemanager.handleInput();
         // update the game states
         Statemanager.update(Gdx.graphics.getDeltaTime());
