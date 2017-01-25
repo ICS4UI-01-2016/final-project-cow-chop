@@ -82,65 +82,55 @@ public class PlayState extends State {
                 System.out.println("RED WINS");
             }
         }
-            Iterator<Bullet2> gs = bullet2.iterator();
-            while (gs.hasNext()) {
-                Bullet2 down = gs.next();
-                if (down.getY() > 600) {
-                    gs.remove();
-                } else if (down.collides(tankr)) {
-                    Statemanager gsm = getStateManager();
-                    gsm.pop();
-                    System.out.println("GREEN WINS");
-                }
+        Iterator<Bullet2> gs = bullet2.iterator();
+        while (gs.hasNext()) {
+            Bullet2 down = gs.next();
+            if (down.getY() > 600) {
+                gs.remove();
+            } else if (down.collides(tankr)) {
+                Statemanager gsm = getStateManager();
+                gsm.pop();
+                System.out.println("GREEN WINS");
             }
-        
-    }
-
-        @Override
-        public void dispose
-        
-            () {
-        bg.dispose();
-            tankr.dispose();
-            tankg.dispose();
-
         }
 
-        @Override
-        public void handleInput
-        
-            () {
+    }
+
+    @Override
+    public void dispose() {
+        // Disposes the images 
+        bg.dispose();
+        tankr.dispose();
+        tankg.dispose();
+    }
+
+    @Override
+    public void handleInput() {
         //
         if (Gdx.input.isKeyPressed(Input.Keys.D)) {
-                //
-                tankr.Accelerate();
-            }
-            //
-            if (Gdx.input.isKeyPressed(Input.Keys.A)) {
-                //
-                tankr.Deccelerate();
-            }
-
-            //
-            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-                //
-                tankg.Accelerate();
-            }
-            //
-            if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-                //
-                tankg.Deccelerate();
-            }
-            if (Gdx.input.isKeyJustPressed(Input.Keys.W)) {
-                bullet.add(new Bullet(tankr.getX() + 7, tankr.getY() + 45));
-            }
-            if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-                bullet2.add(new Bullet2(tankg.getX() + 10, tankg.getY() - 7));
-            }
-
+            tankr.Accelerate();
+        }
+        //
+        if (Gdx.input.isKeyPressed(Input.Keys.A)) {
+            tankr.Deccelerate();
         }
 
-
-
+        //
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+            tankg.Accelerate();
+        }
+        //
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+            tankg.Deccelerate();
+        }
+        //
+        if (Gdx.input.isKeyJustPressed(Input.Keys.W)) {
+            bullet.add(new Bullet(tankr.getX() + 7, tankr.getY() + 45));
+        }
+        //
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+            bullet2.add(new Bullet2(tankg.getX() + 10, tankg.getY() - 7));
+        }
 
     }
+}
