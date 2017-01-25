@@ -22,9 +22,9 @@ public class Bullet {
     private float BULLET_VELOCITY_UP;
     private double bulletvelocity;
 
-    // 
+    
     public Bullet(float x, float y) {
-        // 
+        //  This makes the bullet and the speed
         bulletX = x;
         bulletY = y;
         bulletTexture = new Texture("bullet3.png");
