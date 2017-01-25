@@ -14,6 +14,7 @@ import com.badlogic.gdx.math.Vector3;
  * @author pawar5658
  */
 public class Tanks2 {
+    
    private Texture tankg;
     private float Accelerate = 2;
     private float deccelerate = 2; 
@@ -25,18 +26,19 @@ public class Tanks2 {
         // 
         tankg = new Texture ("Tank5.png"); 
         // 
-       bounds = new Rectangle(position.x,position.y,tankg.getWidth(),tankg.getHeight());
+        bounds = new Rectangle(position.x,position.y,tankg.getWidth(),tankg.getHeight());
+        position.x = x;
+        position.y = y;
     }
+    
    //
     public void render(SpriteBatch batch) {
         batch.draw(tankg, position.x, position.y);
     }
     
      public void update(float deltaTime) {
-
         // Updating the certain bounds of tankX
         bounds.setPosition(position.x, position.y);
-        
     } 
     
 
