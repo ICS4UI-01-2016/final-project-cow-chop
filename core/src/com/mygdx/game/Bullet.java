@@ -21,7 +21,6 @@ public class Bullet {
     private Rectangle bounds;
     private float BULLET_VELOCITY_UP;
     private double bulletvelocity;
-    private boolean collides;
 
     // 
     public Bullet(float x, float y) {
@@ -30,7 +29,7 @@ public class Bullet {
         bulletY = y;
         bulletTexture = new Texture("bullet3.png");
         bounds = new Rectangle(bulletX, bulletY, bulletTexture.getWidth(), bulletTexture.getHeight());
-        bulletvelocity = 50 + Math.random()* 150;
+        bulletvelocity = 50 + Math.random()* 100;
         BULLET_VELOCITY_UP = (float) bulletvelocity;
     }
 
@@ -69,14 +68,13 @@ public class Bullet {
     }
 
     // 
-    public boolean collides(Bullet Bounds) {
+    public boolean collides(Tanks2 tankg) {
         // 
-         if(collides == true){
-             Bounds.dispose();
+         if (bounds.overlaps(tankg.getBounds())) {
             return true;
-        }else{
-        
+        }
+
         return false;
     }
     }
-}
+
